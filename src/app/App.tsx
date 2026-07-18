@@ -41,12 +41,12 @@ const GALLERY_IMAGES = [
     label: "Functional Training",
   },
   {
-    url: "https://images.unsplash.com/photo-1722925541142-5db2668ca492?w=800&h=600&fit=crop&auto=format",
+    url: new URL("../../WhatsApp Image 2026-07-19 at 1.26.33 AM.jpeg", import.meta.url).href,
     alt: "Woman lifting barbell",
     label: "Powerlifting",
   },
   {
-    url: "https://images.unsplash.com/photo-1534258936925-c58bed479fcb?w=800&h=600&fit=crop&auto=format",
+    url: new URL("../../WhatsApp Image 2026-07-19 at 1.19.16 AM.jpeg", import.meta.url).href,
     alt: "Two people exercising together",
     label: "Group Sessions",
   },
@@ -101,7 +101,7 @@ const TESTIMONIALS = [
   {
     name: "Priya Sharma",
     role: "Member since 2023",
-    text: "RGF FITNESS completely changed how I train. The coaches actually know what they&apos;re doing and the equipment is always in top shape.",
+    text: "Rich Gold Fitness Gym completely changed how I train. The coaches actually know what they&apos;re doing and the equipment is always in top shape.",
     stars: 5,
   },
   {
@@ -140,9 +140,9 @@ export default function App() {
         <div className="max-w-7xl mx-auto px-6 md:px-10 flex items-center justify-between h-16">
           {/* Logo */}
           <a href="#home" className="flex items-center gap-2 shrink-0 group">
-            <img src={logoImage} alt="RGF logo" className="w-8 h-8 rounded-full object-cover transition-transform duration-300 ease-out group-hover:scale-110" />
+            <img src={logoImage} alt="Rich Gold Fitness Gym logo" className="w-8 h-8 rounded-full object-cover transition-transform duration-300 ease-out group-hover:scale-110" />
             <span className="text-xl font-black tracking-tight uppercase" style={{ fontFamily: "'Barlow Condensed', sans-serif" }}>
-              RGF <span className="text-primary">FITNESS</span>
+              Rich Gold <span className="text-primary">Fitness Gym</span>
             </span>
           </a>
 
@@ -224,15 +224,15 @@ export default function App() {
               style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
             >
               Train Hard.<br />
-              <span className="text-primary">Live Stronger.</span>
+              <span className="text-primary gold-glow">Live Stronger.</span>
             </h1>
             <p className="text-white/80 text-lg leading-relaxed mb-8 font-light max-w-lg">
-              RGF FITNESS is a 1,500 sq ft professional training facility in Kanpur — with elite equipment, certified coaches, and a culture built around real results.
+              Rich Gold Fitness Gym is a 1,500 sq ft professional training facility in Kanpur — with elite equipment, certified coaches, and a culture built around real results.
             </p>
             <div className="flex flex-wrap gap-4">
               <a
                 href="#enquiry"
-                className="inline-flex items-center gap-2 bg-primary text-white px-7 py-3.5 font-bold text-sm rounded hover:bg-primary/90 transition-colors"
+                className="inline-flex items-center gap-2 bg-primary text-white px-7 py-3.5 font-bold text-sm rounded hover:bg-primary/90 transition-colors gold-glow-box"
               >
                 Book a Free Trial <ArrowRight className="w-4 h-4" />
               </a>
@@ -280,7 +280,7 @@ export default function App() {
           </div>
 
           <div>
-            <span className="text-primary text-xs font-bold tracking-widest uppercase">About RGF FITNESS</span>
+            <span className="text-primary text-xs font-bold tracking-widest uppercase">About Rich Gold Fitness Gym</span>
             <h2
               className="text-4xl md:text-5xl font-black uppercase leading-tight mt-2 mb-5"
               style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
@@ -289,7 +289,7 @@ export default function App() {
               <span className="text-primary">A Proving Ground.</span>
             </h2>
             <p className="text-muted-foreground leading-relaxed mb-4">
-              Founded in 2012, RGF FITNESS was built for people who take training seriously. Our 18,000 sq ft facility houses Olympic lifting platforms, a full powerlifting setup, functional training rigs, and a premium cardio deck.
+              Founded in 2012, Rich Gold Fitness Gym was built for people who take training seriously. Our 18,000 sq ft facility houses Olympic lifting platforms, a full powerlifting setup, functional training rigs, and a premium cardio deck.
             </p>
             <p className="text-muted-foreground leading-relaxed mb-8">
               Every coach holds professional certifications and brings real competition experience. We hire people who can teach, motivate, and deliver measurable, trackable results for every kind of member.
@@ -332,9 +332,9 @@ export default function App() {
                 />
               </div>
               <div className="p-5 text-center bg-white/10 backdrop-blur-sm">
-                <h3 className="text-sm uppercase tracking-[0.35em] text-primary font-semibold mb-2">RGF Gym Preview</h3>
-                <p className="text-white/80 text-sm md:text-base max-w-2xl mx-auto">
-                  Watch the energy, space and training intensity at RGF Gym Singhpur — built for serious results.
+                <h3 className="text-sm uppercase tracking-[0.35em] text-primary font-semibold mb-2">Rich Gold Fitness Gym Preview</h3>
+                <p className="text-gray-400 text-sm md:text-base max-w-2xl mx-auto">
+                  Watch the energy, space and training intensity at Rich Gold Fitness Gym Singhpur — built for serious results.
                 </p>
               </div>
             </div>
@@ -411,7 +411,7 @@ export default function App() {
                 <img
                   src={img.url}
                   alt={img.alt}
-                  className={`w-full ${img.label === "Functional Training" ? "object-cover object-[center_center]" : "object-cover object-center"} scale-90 group-hover:scale-100 transition-transform duration-500 ${i === 0 ? "h-72 lg:h-full" : "h-52"}`}
+                  className={`w-full ${img.label === "Functional Training" ? "object-cover object-[center_center]" : img.label === "Group Sessions" ? "object-cover object-[center_35%]" : img.label === "Dumbbell Zone" ? "object-cover object-[center_60%]" : "object-cover object-center"} scale-95 group-hover:scale-110 transition-transform duration-500 ${i === 0 ? "h-[26rem] lg:h-[32rem]" : "h-[18rem]"}`}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 <div className="absolute bottom-3 left-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -634,9 +634,9 @@ export default function App() {
           {/* Brand */}
           <div className="md:col-span-1">
             <div className="flex items-center gap-2 mb-4 group">
-              <img src={logoImage} alt="RGF logo" className="w-10 h-10 rounded-full object-cover transition-transform duration-300 ease-out group-hover:scale-110" />
+              <img src={logoImage} alt="Rich Gold Fitness Gym logo" className="w-10 h-10 rounded-full object-cover transition-transform duration-300 ease-out group-hover:scale-110" />
               <span className="text-lg font-black uppercase tracking-tight" style={{ fontFamily: "'Barlow Condensed', sans-serif" }}>
-                RGF <span className="text-primary">FITNESS</span>
+                Rich Gold <span className="text-primary">Fitness Gym</span>
               </span>
             </div>
             <p className="text-white/60 text-sm leading-relaxed">
@@ -701,8 +701,8 @@ export default function App() {
           <div className="mb-4 text-xs font-bold uppercase tracking-widest text-white/40">Find Us</div>
           <div className="overflow-hidden rounded-3xl border border-white/10">
             <iframe
-              title="RGF Gym Singhpur Kanpur map"
-              src="https://maps.google.com/maps?q=RGF%20Gym%20Singhpur%20Kanpur&t=&z=15&ie=UTF8&iwloc=&output=embed"
+              title="Rich Gold Fitness Gym Singhpur Kanpur map"
+              src="https://maps.google.com/maps?q=Rich%20Gold%20Fitness%20Gym%20Singhpur%20Kanpur&t=&z=15&ie=UTF8&iwloc=&output=embed"
               className="w-full h-64"
               allowFullScreen
               loading="lazy"
@@ -713,7 +713,7 @@ export default function App() {
 
         <div className="border-t border-white/10">
           <div className="max-w-7xl mx-auto px-6 md:px-10 py-4 flex flex-col md:flex-row items-center justify-between gap-2">
-            <p className="text-xs text-white/40">© 2026 RGF FITNESS Pvt. Ltd. All rights reserved.</p>
+            <p className="text-xs text-white/40">© 2026 Rich Gold Fitness Gym Pvt. Ltd. All rights reserved.</p>
             <p className="text-xs text-white/40">Singhpur Chauraha, Kanpur, UP, India</p>
           </div>
         </div>

@@ -1,5 +1,33 @@
 @custom-variant dark (&:is(.dark *));
 
+@keyframes goldGlow {
+  0%,
+  100% {
+    text-shadow: 0 0 0 rgba(212, 175, 55, 0);
+  }
+  50% {
+    text-shadow: 0 0 14px rgba(212, 175, 55, 0.4), 0 0 24px rgba(246, 211, 101, 0.25);
+  }
+}
+
+@keyframes goldGlowBox {
+  0%,
+  100% {
+    box-shadow: 0 0 0 rgba(212, 175, 55, 0);
+  }
+  50% {
+    box-shadow: 0 0 18px rgba(212, 175, 55, 0.35), 0 0 32px rgba(246, 211, 101, 0.2);
+  }
+}
+
+.gold-glow {
+  animation: goldGlow 2.2s ease-in-out infinite;
+}
+
+.gold-glow-box {
+  animation: goldGlowBox 2.2s ease-in-out infinite;
+}
+
 :root {
   --font-size: 16px;
   --background: #ffffff;
@@ -8,14 +36,14 @@
   --card-foreground: #111111;
   --popover: #ffffff;
   --popover-foreground: #111111;
-  --primary: #e8401a;
-  --primary-foreground: #ffffff;
+  --primary: #d4af37;
+  --primary-foreground: #111111;
   --secondary: #f3f3f3;
   --secondary-foreground: #111111;
   --muted: #f3f3f3;
   --muted-foreground: #6b6b6b;
-  --accent: #fff3f0;
-  --accent-foreground: #e8401a;
+  --accent: #fff8dc;
+  --accent-foreground: #8a6a12;
   --destructive: #d4183d;
   --destructive-foreground: #ffffff;
   --border: rgba(0, 0, 0, 0.1);
@@ -24,7 +52,7 @@
   --switch-background: #d0d0d0;
   --font-weight-medium: 600;
   --font-weight-normal: 400;
-  --ring: #e8401a;
+  --ring: #d4af37;
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
