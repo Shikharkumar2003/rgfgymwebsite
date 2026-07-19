@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Menu, X, Phone, Mail, MapPin, ChevronRight, Dumbbell, Flame, Users, Clock, Star, ArrowRight } from "lucide-react";
+import { Menu, X, Phone, Mail, MapPin, ChevronRight, Dumbbell, Flame, Users, Clock, Star, ArrowRight, Instagram, Youtube, Facebook } from "lucide-react";
 
 const logoImage = new URL("../../WhatsApp Image 2026-07-18 at 8.58.05 PM.jpeg", import.meta.url).href;
 const heroImage = new URL("../../ChatGPT Image Jul 18, 2026, 07_43_14 PM.png", import.meta.url).href;
@@ -137,6 +137,18 @@ export default function App() {
 
       {/* ── HEADER / NAV ── */}
       <header className="sticky top-0 z-50 bg-white border-b border-border shadow-sm">
+        <div className="border-b border-border/70 bg-black/95 px-4 py-2 text-center text-[11px] sm:text-xs text-white/80">
+          <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-center gap-1 sm:gap-2">
+            <span>Website created by</span>
+            <span className="font-semibold text-primary">SK Solution (Shikhar Kumar)</span>
+            <span className="hidden sm:inline">•</span>
+            <div className="group inline-flex items-center gap-1 sm:gap-2">
+              <a href="tel:+919076895802" className="max-w-0 overflow-hidden opacity-0 transition-all duration-200 group-hover:max-w-40 group-hover:opacity-100 hover:text-primary">+91 90768 95802</a>
+              <span className="hidden sm:inline max-w-0 overflow-hidden opacity-0 transition-all duration-200 group-hover:max-w-20 group-hover:opacity-100">•</span>
+              <a href="mailto:shikherkumar900red@gmail.com" className="max-w-0 overflow-hidden opacity-0 transition-all duration-200 group-hover:max-w-56 group-hover:opacity-100 hover:text-primary">shikherkumar900red@gmail.com</a>
+            </div>
+          </div>
+        </div>
         <div className="max-w-7xl mx-auto px-6 md:px-10 flex items-center justify-between h-16">
           {/* Logo */}
           <a href="#home" className="flex items-center gap-2 shrink-0 group">
@@ -688,11 +700,25 @@ export default function App() {
               </div>
             </div>
             <div className="flex gap-3 mt-5">
-              {["Instagram", "YouTube", "Facebook"].map((s) => (
-                <a key={s} href="#" className="text-xs text-white/50 hover:text-primary transition-colors font-semibold uppercase tracking-wide">
-                  {s}
-                </a>
-              ))}
+              {[
+                { label: "Instagram", href: "https://www.instagram.com/rgffitness2023/", icon: Instagram },
+                { label: "YouTube", href: "#", icon: Youtube },
+                { label: "Facebook", href: "#", icon: Facebook },
+              ].map((s) => {
+                const Icon = s.icon;
+                return (
+                  <a
+                    key={s.label}
+                    href={s.href}
+                    target={s.href.startsWith("#") ? undefined : "_blank"}
+                    rel={s.href.startsWith("#") ? undefined : "noreferrer"}
+                    aria-label={s.label}
+                    className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white/70 transition-colors hover:border-primary/40 hover:text-primary"
+                  >
+                    <Icon className="h-5 w-5" />
+                  </a>
+                );
+              })}
             </div>
           </div>
         </div>
@@ -712,9 +738,25 @@ export default function App() {
         </div>
 
         <div className="border-t border-white/10">
-          <div className="max-w-7xl mx-auto px-6 md:px-10 py-4 flex flex-col md:flex-row items-center justify-between gap-2">
+          <div className="max-w-7xl mx-auto px-6 md:px-10 py-2.5 flex flex-col md:flex-row items-center justify-between gap-2">
             <p className="text-xs text-white/40">© 2026 Rich Gold Fitness Gym Pvt. Ltd. All rights reserved.</p>
-            <p className="text-xs text-white/40">Singhpur Chauraha, Kanpur, UP, India</p>
+            <div className="relative group flex items-center justify-center">
+              <p className="text-xs text-white/40">Website created by </p>
+              <span className="ml-1 text-sm font-semibold text-primary transition-colors group-hover:text-white">
+                SK Solution (Shikhar Kumar)
+              </span>
+              <div className="pointer-events-none absolute right-0 top-full z-20 mt-2 w-72 rounded-2xl border border-white/10 bg-[#0f0f0f]/95 p-3 text-left shadow-2xl opacity-0 translate-y-2 transition-all duration-200 group-hover:pointer-events-auto group-hover:opacity-100 group-hover:translate-y-0 group-focus-within:opacity-100 group-focus-within:translate-y-0">
+                <p className="text-sm font-semibold text-white">Shikhar Kumar</p>
+                <a href="tel:+919076895802" className="mt-2 flex items-center gap-2 text-sm text-white/70 transition-colors hover:text-primary">
+                  <Phone className="h-4 w-4" />
+                  +91 90768 95802
+                </a>
+                <a href="mailto:shikherkumar900red@gmail.com" className="mt-1 flex items-center gap-2 text-sm text-white/70 transition-colors hover:text-primary">
+                  <Mail className="h-4 w-4" />
+                  shikherkumar900red@gmail.com
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </footer>
