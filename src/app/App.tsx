@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Menu, X, Phone, Mail, MapPin, ChevronRight, Dumbbell, Flame, Users, Clock, Star, ArrowRight, Instagram, Youtube, Facebook } from "lucide-react";
 
 const logoImage = new URL("../../WhatsApp Image 2026-07-18 at 8.58.05 PM.jpeg", import.meta.url).href;
@@ -122,6 +122,16 @@ export default function App() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [form, setForm] = useState({ name: "", email: "", phone: "", program: "", message: "" });
   const [submitted, setSubmitted] = useState(false);
+  const [showCreatorContact, setShowCreatorContact] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => setShowCreatorContact(window.scrollY > 80);
+
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) {
     setForm((f) => ({ ...f, [e.target.name]: e.target.value }));
@@ -142,10 +152,20 @@ export default function App() {
             <span>Website created by</span>
             <span className="font-semibold text-primary">SK Solution (Shikhar Kumar)</span>
             <span className="hidden sm:inline">•</span>
-            <div className="group inline-flex items-center gap-1 sm:gap-2">
-              <a href="tel:+919076895802" className="max-w-0 overflow-hidden opacity-0 transition-all duration-200 group-hover:max-w-40 group-hover:opacity-100 hover:text-primary">+91 90768 95802</a>
-              <span className="hidden sm:inline max-w-0 overflow-hidden opacity-0 transition-all duration-200 group-hover:max-w-20 group-hover:opacity-100">•</span>
-              <a href="mailto:shikherkumar900red@gmail.com" className="max-w-0 overflow-hidden opacity-0 transition-all duration-200 group-hover:max-w-56 group-hover:opacity-100 hover:text-primary">shikherkumar900red@gmail.com</a>
+            <div className="inline-flex items-center gap-1 sm:gap-2">
+              <a
+                href="tel:+919076895802"
+                className={`overflow-hidden transition-all duration-200 hover:text-primary ${showCreatorContact ? "max-w-40 opacity-100" : "max-w-0 opacity-0"}`}
+              >
+                +91 90768 95802
+              </a>
+              <span className={`hidden sm:inline overflow-hidden transition-all duration-200 ${showCreatorContact ? "max-w-4 opacity-100" : "max-w-0 opacity-0"}`}>•</span>
+              <a
+                href="mailto:shikherkumar900red@gmail.com"
+                className={`overflow-hidden transition-all duration-200 hover:text-primary ${showCreatorContact ? "max-w-56 opacity-100" : "max-w-0 opacity-0"}`}
+              >
+                shikherkumar900red@gmail.com
+              </a>
             </div>
           </div>
         </div>
